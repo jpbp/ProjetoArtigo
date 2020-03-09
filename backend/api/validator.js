@@ -18,5 +18,5 @@ module.exports= app=>{
     function equalsOrError(a,b,c){
         if(a!==b)throw msg
     }
-    return (existOrError,notExistOrError,equalsOrError)
+    return {existOrError,notExistOrError,equalsOrError}
 }
