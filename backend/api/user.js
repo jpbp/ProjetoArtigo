@@ -34,7 +34,7 @@ module.exports= app =>{
         if(user.id){
             app.db('users')
             .update(user)
-            .where({od: user.id})
+            .where({id: user.id})
             .then(_ => res.status(204).send())
             .catch(err=> res.status(500).send(err))
         }else{
@@ -51,5 +51,17 @@ module.exports= app =>{
         .catch(err=>res.status(500).send(err))
         
     }
-    return { save ,get }
+    const getbyId = (req,res)=>{
+       
+        console.log(req.params.id)
+        app.db('users')
+        .select('id','name','email','admin').where({id:req.params.id})
+        .then(user=>res.json(user))
+        .catch(err=>res.status(500).send(err))
+        
+    }
+  
+
+
+    return { save ,get , getbyId }
 }
