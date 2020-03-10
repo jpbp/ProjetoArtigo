@@ -6,6 +6,7 @@ const db = require('./config/db')
 app.db=db
 consign()
     .then('./config/middlewares.js')
+    .then('./api/validator.js')
     .then('./api')
     .then('./config/router.js')
     .into(app)
