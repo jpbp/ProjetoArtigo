@@ -53,7 +53,7 @@ module.exports= app =>{
     }
     const getbyId = (req,res)=>{
        
-        console.log(req.params.id)
+        
         app.db('users')
         .select('id','name','email','admin').where({id:req.params.id})
         .then(user=>res.json(user))
