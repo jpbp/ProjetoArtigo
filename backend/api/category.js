@@ -1,5 +1,5 @@
 module.exports = app =>{
-    const { existOrError,notExistOrError,equalsOrError} = app.api.validator
+    const { existOrError,notExistOrError} = app.api.validator
     //metodo tanto para inserir quanto para remover
     const save = (req,res)=>{
         const category = {... req.body}
