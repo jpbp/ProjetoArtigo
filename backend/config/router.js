@@ -1,4 +1,11 @@
 module.exports= app=>{
+    // para cadastrar um novo user
+    app.post('/signup',app.api.user.save)
+    //verificação do user
+    app.post('/signin',app.api.auth.signin)
+
+    app.post('/validationToken',app.api.auth.validateToken)
+
     app.route('/users')
         .post(app.api.user.save)
         .get(app.api.user.get)
@@ -27,4 +34,10 @@ module.exports= app=>{
         .get(app.api.article.getById)
         .put(app.api.article.save)
         .delete(app.api.article.remove)
+
+    app.route('/categories/:id/articles')
+        .get(app.api.article.getByCategory)
+    
+    
+        
 }
