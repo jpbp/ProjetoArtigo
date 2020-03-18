@@ -6,7 +6,9 @@ const moongose= require('mongoose')
 
 require('./config/mongodb.js')
 
-
+app.get('/test',(req,res)=>{
+    res.send("foi")
+})
 
 app.db=db
 app.moongose=moongose
